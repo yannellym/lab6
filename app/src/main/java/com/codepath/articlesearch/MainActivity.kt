@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.codepath.articlesearch.databinding.ActivityMainBinding
 import com.codepath.asynchttpclient.AsyncHttpClient
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.serialization.json.Json
 import okhttp3.Headers
 import org.json.JSONException
@@ -73,5 +74,20 @@ class MainActivity : AppCompatActivity() {
 
         })
 
+        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottom_navigation)
+
+        bottomNavigationView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.action_favorites ->
+                    // do something here
+                    true
+                R.id.action_schedules ->
+                    // do something here
+                    true
+                else -> true
+            }
+        }
+
     }
+
 }
