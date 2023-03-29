@@ -32,6 +32,9 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        // Call helper method to swap the FrameLayout with the fragment
+        replaceFragment(ArticleListFragment())
+
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottom_navigation)
 
         bottomNavigationView.setOnItemSelectedListener { item ->
@@ -46,6 +49,13 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+    }
+    //This FrameLayout will be where the fragment will be dynamically placed at runtime.
+    private fun replaceFragment(articleListFragment: ArticleListFragment) {
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.article_frame_layout, articleListFragment)
+        fragmentTransaction.commit()
     }
 
 }
